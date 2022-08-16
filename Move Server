@@ -1,0 +1,9 @@
+#Old server:
+cd ~/charon-distributed-validator-node && docker compose down -v
+rm -rf $home/charon-distributed-validator-node/data/
+
+#Move data to New server:
+scp -r username@IP_OLD_SERVER:$home/charon-distributed-validator-node/ /path/of/new/server 
+(normally, path = /root/)
+
+#DONE
