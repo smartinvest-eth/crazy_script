@@ -11,7 +11,10 @@ echo -e "\e[0m"
 sleep 2
 
 #stop docker compose and reload
-cd ~/charon-distributed-validator-node/ && docker compose down && git reset --hard && git pull
+cd ~/charon-distributed-validator-node/ && docker compose down && git pull
+
+#Delete old bootnode
+rm docker-compose.bootnodes.yml
 
 #create docker-compose.bootnodes.yml
 sudo tee /root/charon-distributed-validator-node/docker-compose.bootnodes.yml > /dev/null <<EOF
@@ -21,7 +24,7 @@ services:
   charon:
     # Pegged charon version (update this for each release).
     # image: obolnetwork/charon:${CHARON_VERSION}
-    image: ghcr.io/obolnetwork/charon:latest
+    image: ghcr.io/obolnetwork/charon:09bdf33
     environment:
       CHARON_P2P_BOOTNODES: http://163.172.51.186:3640/enr
 EOF
@@ -31,3 +34,5 @@ docker compose -f docker-compose.yml -f docker-compose.bootnodes.yml up -d
 
 echo '=============== SETUP FINISHED ==================='
 echo -e 'To check logs: \e[1m\e[32mdocker compose logs --tail 100 -f \e[0m'
+echo -e 'To stop: \e[1m\e[32mcd ~/charon-distributed-validator-node/ && docker compose down \e[0m'
+echo -e 'To Start: \e[1m\e[32mcd ~/charon-distributed-validator-node/ && docker compose -f docker-compose.yml -f docker-compose.bootnodes.yml up -d \e[0m'
