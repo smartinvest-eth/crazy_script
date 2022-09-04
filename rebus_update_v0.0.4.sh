@@ -10,8 +10,8 @@ for((;;)); do
 	if ((height>=$BLOCK)); then
 
 		sudo systemctl stop rebusd
-		cd $HOME && rm -rf stride
-		git clone https://github.com/rebuschain/rebus.core.git  && cd stride
+		cd $HOME && rm -rf rebus.core
+		git clone https://github.com/rebuschain/rebus.core.git  && cd rebus.core
 		git checkout v0.0.4
 		make build
 		sudo mv build/rebusd $(which rebusd)
