@@ -2,8 +2,8 @@
 GREEN_COLOR='\033[0;32m'
 RED_COLOR='\033[0;31m'
 NO_COLOR='\033[0m'
-BLOCK=256200
-VERSION=v1.1.0
+BLOCK=355555
+VERSION=v1.2.0
 echo -e "$GREEN_COLOR YOUR NODE WILL BE UPDATED TO VERSION: $VERSION ON BLOCK NUMBER: $BLOCK $NO_COLOR\n"
 for((;;)); do
 	height=$(haqqd status |& jq -r ."SyncInfo"."latest_block_height")
@@ -11,7 +11,7 @@ for((;;)); do
 
 		cd $HOME && rm -rf haqq
 		git clone https://github.com/haqq-network/haqq && cd haqq
-		git checkout v1.1.0
+		git checkout v1.2.0
 		make install
 		echo "restart the system..."
 		sudo systemctl restart haqqd && journalctl -fu haqqd -o cat
