@@ -2,8 +2,8 @@
 GREEN_COLOR='\033[0;32m'
 RED_COLOR='\033[0;31m'
 NO_COLOR='\033[0m'
-BLOCK=1454570
-VERSION=v4.1.0
+BLOCK=3052235
+VERSION=v5.0.0
 echo -e "$GREEN_COLOR YOUR NODE WILL BE UPDATED TO VERSION: $VERSION ON BLOCK NUMBER: $BLOCK $NO_COLOR\n"
 for((;;)); do
 	height=$(okp4d status |& jq -r ."SyncInfo"."latest_block_height")
@@ -13,7 +13,7 @@ for((;;)); do
 		cd $HOME && rm -rf okp4d
 		git clone https://github.com/okp4/okp4d.git
 		cd okp4d
-		git checkout v4.0.0
+		git checkout v5.0.0
 		make build
 		sudo mv ./target/dist/okp4d $(which okp4d)
 		sudo systemctl restart okp4d && journalctl -fu okp4d -o cat
