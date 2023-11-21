@@ -4,8 +4,8 @@ systemctl stop subspace-noded
 systemctl stop subspace-operatord
 rm /usr/local/bin/subspace-*
 cd $HOME/subspace
-wget -O subspace-node https://github.com/subspace/subspace/releases/download/gemini-3g-2023-nov-19/subspace-node-ubuntu-x86_64-skylake-gemini-3g-2023-nov-19
-wget -O subspace-farmer https://github.com/subspace/subspace/releases/download/gemini-3g-2023-nov-19/subspace-farmer-ubuntu-x86_64-skylake-gemini-3g-2023-nov-19
+wget -O subspace-node https://github.com/subspace/subspace/releases/download/gemini-3g-2023-nov-20/subspace-node-ubuntu-x86_64-skylake-gemini-3g-2023-nov-20
+wget -O subspace-farmer https://github.com/subspace/subspace/releases/download/gemini-3g-2023-nov-20/subspace-farmer-ubuntu-x86_64-skylake-gemini-3g-2023-nov-20
 chmod a+x subspace-*
 cp subspace-* /usr/local/bin/
 
