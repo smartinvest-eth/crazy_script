@@ -1,11 +1,10 @@
 #!/bin/bash
 systemctl stop subspace-farmerd
 systemctl stop subspace-noded
-systemctl stop subspace-operatord
 rm /usr/local/bin/subspace-*
 cd $HOME/subspace
-wget -O subspace-node https://github.com/subspace/subspace/releases/download/gemini-3g-2024-jan-08/subspace-node-ubuntu-x86_64-skylake-gemini-3g-2024-jan-08
-wget -O subspace-farmer https://github.com/subspace/subspace/releases/download/gemini-3g-2024-jan-08/subspace-farmer-ubuntu-x86_64-skylake-gemini-3g-2024-jan-08
+wget -O subspace-node https://github.com/subspace/subspace/releases/download/gemini-3h-2024-feb-19/subspace-node-ubuntu-x86_64-skylake-gemini-3h-2024-feb-19
+wget -O subspace-farmer https://github.com/subspace/subspace/releases/download/gemini-3h-2024-feb-19/subspace-farmer-ubuntu-x86_64-skylake-gemini-3h-2024-feb-19
 chmod a+x subspace-*
 cp subspace-* /usr/local/bin/
 
@@ -13,8 +12,6 @@ cp subspace-* /usr/local/bin/
 systemctl restart subspace-noded 
 sleep 2
 systemctl restart subspace-farmerd
-sleep 2
-systemctl restart subspace-operatord
 sleep 2
 #check node and farm working correctly 
 if systemctl is-active --quiet subspace-noded.service; then
