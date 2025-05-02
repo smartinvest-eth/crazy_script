@@ -17,6 +17,9 @@ AZTEC_DIR="/root/aztec"
 ENV_FILE="${AZTEC_DIR}/aztec.env"
 PROVER_SCRIPT="${AZTEC_DIR}/aztec-prover-run.sh"
 
+# Tạo thư mục nếu chưa có
+mkdir -p "$AZTEC_DIR"
+
 # 1. Cài đặt phụ thuộc hệ thống
 apt-get update && apt-get upgrade -y
 apt-get install -y curl wget git build-essential automake autoconf make gcc g++ \
